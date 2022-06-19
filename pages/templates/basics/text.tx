@@ -1,0 +1,134 @@
+<!-- <div class="container mt-5">
+    <div class="row">
+
+        {% for property in properties%}
+        <div class="card h-100">
+            <form action="">
+                <input type="hidden" name="id" value="{{property.id}}">
+                <button formaction="pview" formmethod="GET" type="submit" class="btn">
+                    <img class="card-img-top" src="/media/{{property.image}}" alt="" style="outline:none;">
+                </button>
+            </form>
+            <div class="card-body">
+                <h4 class="card-title">
+                    <p class="card-text">For {{property.property_type}}</p>
+                </h4>
+                <p class="card-text">{{property.project_name}}</p>
+                <p class="card-text">{{property.description}}</p>
+                <p class="card-text">price Rs:{{property.price}}</p>
+                <form action="pview" method="GET">
+                    <input type="hidden" name="id" value="{{property.id}}">
+                    <button type="submit" class="btn btn-outline-primary"> veiw details </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+</div> -->
+
+<!-- <div class="container mt-5">
+    <div class="row">
+        {% for property in properties|slice:":3"%}
+        <div class="card mb-3" id="cardcontainer">
+            <form action="">
+                {%csrf_token%}
+                <input type="hidden" name="id" value="{{property.id}}">
+                <button formaction="pview" formmethod="GET" type="submit" class="btn">
+                    <img class="card-img-top" src="/media/{{property.image}}" alt="">
+                </button>
+            </form>
+            <div class="card-body">
+                <h4 class="card-title">
+                    <p class="card-text">For {{property.property_type}}</p>
+                </h4>
+                <p class="card-text">{{property.project_name}}</p>
+                <p class="card-text">{{property.description}}</p>
+                <p class="card-text">price Rs:{{property.price}}</p>
+            </div>
+            <div class="card-footer">
+                <form action="pview" method="GET">
+                    {%csrf_token%}
+                    <input type="hidden" name="id" value="{{property.id}}">
+                    <button type="button" class="btn btn-primary btn-lg btn-block">veiw details</button>
+                </form>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div> -->
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+<!-- <style>
+    body {
+        background: none;
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        background-position: center;
+    }
+
+    .loginbox {
+        width: 350px;
+        height: 650px;
+        color: black;
+        top: 50%;
+        left: 50%;
+        position: left;
+        margin-left: 10%;
+        box-sizing: border-box;
+        padding: 70px 30px;
+        border-radius: 20px;
+
+    }
+
+    .loginbox h1 {
+        margin: 0;
+        padding: 0 0 20px;
+        text-align: center;
+        color: rgb(8, 8, 8);
+        font-size: 26px;
+        font-weight: bold;
+        margin-top: 2%;
+    }
+
+    .loginbox input[type="email"],
+    input[type="text"],
+    input[type="float"] {
+        border: 2px solid black;
+        background: none;
+        outline: none;
+        height: 40px;
+        color: black;
+        font-size: 14px;
+        border-radius: 5px;
+        width: 300px;
+        text-align: center;
+        margin-top: 1%;
+    }
+
+    .loginbox select {
+        border: 2px solid black;
+        border-radius: 5px;
+        outline: none;
+        width: 200px;
+        height: 30px;
+
+    }
+
+    .loginbox textarea {
+        border: 2px solid black;
+        border-radius: 5px;
+        outline: none;
+    }
+
+
+    .loginbox image {
+        border: 2px solid black;
+        width: 100px;
+    }
+
+    .loginbox button {
+        margin-top: 2%;
+        margin-bottom: 10%;
+    }
+</style> -->

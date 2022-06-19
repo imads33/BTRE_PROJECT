@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+    <title>{% block title %} {% endblock %}</title>
+
+</head>
+{%load static%}
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#e3f2fd;">
+        <a class="navbar-brand" href="">REAL ESTATE</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">&times;</span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="position p-2  mr-auto text-dark">
+
+                <a href="/home">
+                    <button class="btn btn-outline-dark" type="submit"> Home </button></a>
+
+                <a href="/about" target="blank">
+                    <button type="button" class="btn btn-outline-dark"> About </button></a>
+
+
+                <a href="/contact">
+                    <button class="btn btn-outline-dark" type="submit">Contact-Us</button></a>
+
+            </div>
+
+            <div class="position p-2 bg-none text-dark">
+                <form class="form-inline" action="search" method="POST">
+                    {%csrf_token%}
+                    <input class="form-control mr-sm-2" size="50" type="search" placeholder="Search"
+                        aria-label=" type to Search" name="search">
+                    <button class="btn btn-outline-dark my-4 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+
+
+            <div class="position p-2 text-dark">
+                <a href="/upload">
+                    <button class="btn btn-outline-dark" type="submit"> Sell
+                        Property</button></a>
+            </div>
+
+            {% if user.is_authenticated %}
+
+            <div class="position p-2 text-dark">
+                <a href="myupload">
+                    <button class="btn btn-outline-dark" type="submit">MyUploads</button>
+                </a>
+
+            </div>
+            <div class="position p-2 text-dark">
+                <a href="logout">
+                    <button class="btn btn-outline-dark" type="submit"> LogOut</button>
+                </a>
+            </div>
+            {% else %}
+
+            <div class="position p-2 text-dark">
+                <a href="register">
+                    <button class="btn btn-outline-dark" type="submit">Register</button></a>
+            </div>
+            <div class="position p-2 text-dark">
+                <a href="login">
+                    <button class="btn btn-outline-dark" type="submit"> Login </button>
+                </a>
+
+            </div>
+            {% endif %}
+
+        </div>
+
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                {%if messages%}
+                {% for message in messages %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert" size="50"
+                    style="margin-top: 8%;">
+                    {{message}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    {%block body%} {%endblock%}
+
+</body>
+
+
+</html>

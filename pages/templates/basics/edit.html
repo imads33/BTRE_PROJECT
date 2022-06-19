@@ -1,0 +1,30 @@
+{% extends 'basics/base.html' %}
+
+{% block title %}{% endblock %}
+
+{%load crispy_forms_tags%}
+
+{%block body%}
+
+<div class="container mt-5">
+    <p>
+        make neccesery changes, so that everyone can see your property
+    </p>
+</div>
+
+<div class="container mt-5 ml-5">
+    <div class="row justify-content-center">
+        <div class="col-5">
+            <div class="loginbox">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token%}
+                    {{form|crispy}}
+
+                    <input type="hidden" name="editedid" value="{{id.id}}">
+                    <button type="submit" class="btn btn-outline-success"> Submit Changes </button>
+                </form>
+            </div>
+            {% endblock %}
+        </div>
+    </div>
+</div>

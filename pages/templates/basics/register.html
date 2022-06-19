@@ -1,0 +1,31 @@
+{% extends 'basics/base.html' %}
+
+{% block title %}register {% endblock %}
+{%load crispy_forms_tags %}
+
+{%block body%}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-5">
+            <div class="loginbox mt-5">
+                <h1> Lets Do This </h1>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <!-- {%if messages%}
+                    {% for message in messages %}
+                    <div class="alert alert-danger" role="alert">
+                        <p> The password must contain following( numbers),(uppercase later),and (speciel charecters)</p>
+                    </div>
+                    {% endfor %}
+                    {% endif %} -->
+                    <button class="btn btn-outline-primary btn-block" type="submit" name="Register"
+                        value="Register">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

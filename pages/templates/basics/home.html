@@ -1,0 +1,50 @@
+{% extends 'basics/base.html' %}
+{%load static%}
+{%block title%}REAL ESTATE {%endblock%}
+
+{%block body%}
+
+<style>
+    #cardcontainer {
+        margin-left: 4%;
+        width: 20rem;
+    }
+
+    #cardcontainer img {
+        height: 200px;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row">
+        {% for property in properties%}
+        <div class="card mb-3" id="cardcontainer">
+            <form action="">
+                {%csrf_token%}
+                <input type="hidden" name="id" value="{{property.id}}">
+                <button formaction="pview" formmethod="GET" type="submit" class="btn">
+                    <img class="card-img-top" src="/media/{{property.image}}" alt="">
+                </button>
+            </form>
+            <div class="card-body">
+                <h4 class="card-title">
+                    <p class="card-text">For {{property.property_type}}</p>
+                </h4>
+                <p class="card-text">{{property.project_name}}</p>
+                <p class="card-text">{{property.description}}</p>
+                <p class="card-text">price Rs:{{property.price}}</p>
+            </div>
+            <div class="card-footer">
+                <form action="pview" method="GET">
+                    {%csrf_token%}
+                    <input type="hidden" name="id" value="{{property.id}}">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">veiw details</button>
+                </form>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+
+
+{%endblock%}
